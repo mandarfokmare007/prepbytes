@@ -45,7 +45,7 @@
       The backtracking algorithm.</b></p>
     <p>Here is the algorithm (in pseudocode) for doing backtracking from a given node 
       n:</p>
-    <blockquote>
+    
       <pre>boolean solve(Node n) {
         if n is a leaf node {
             if the leaf is a goal node, return true
@@ -57,7 +57,7 @@
             return false
         }
     }</pre>
-    </blockquote>
+    
     <p>Notice that the algorithm is expressed as a <i>boolean</i> function. This is 
       essential to understanding the algorithm. If <code>solve(n)</code> is true, 
       that means node<code> n </code>is part of a solution--that is, node<code> n 
@@ -81,10 +81,10 @@
       leaf node is a goal node, it is solvable; if the leaf node is not a goal node, 
       it is not solvable. This is our base case. In the above code, this is done by 
       the lines</p>
-    <blockquote><pre>if n is a leaf node {
+   <pre>if n is a leaf node {
         if the leaf is a goal node, return true
         else return false
-    }</pre></blockquote>
+    }</pre>
     <p>The backtracking algorithm is simple but important. You should understand it 
       thoroughly. Another way of stating it is as follows:</p>
     <dir> 
@@ -101,7 +101,7 @@
     <p>Backtracking is a rather typical recursive algorithm, and any recursive algorithm 
       can be rewritten as a stack algorithm. In fact, that is how your recursive algorithms 
       are translated into machine or assembly language.</p>
-    <blockquote>
+    
       <pre>boolean solve(Node n) {
         put node n on the stack;
         while the stack is not empty {
@@ -117,7 +117,7 @@
         }
         return false
     }</pre>
-    </blockquote>
+    
     <p>Starting from the root, the only nodes that can be pushed onto the stack are 
       the children of the node currently on the top of the stack, and these are only 
       pushed on one child at a time; hence, the nodes on the stack at all times describe 
@@ -133,7 +133,7 @@
       printing the node at the current level, or storing it in an array.</p>
     <p>Here is the recursive backtracking algorithm, modified slightly to print (in 
       reverse order) the nodes along the successful path:</p>
-    <blockquote>
+    
       <pre>boolean solve(Node n) {
         if n is a leaf node {
             if the leaf is a goal node {
@@ -151,7 +151,7 @@
             return false
         }
     }</pre>
-    </blockquote>
+   
     <p><b><font size="+1"><br>
       Keeping backtracking simple</b></p>
     <p>All of these versions of the backtracking algorithm are pretty simple, but 
@@ -214,7 +214,7 @@
       shows a binary tree.</p>
     <p align="center"><img src="treesearch.gif" height="136" width="259"></p>
     <p>Here's a definition of the BinaryTree class:</p>
-    <blockquote>
+    
       <pre>public class BinaryTree {
         BinaryTree leftChild = null;
         BinaryTree rightChild = null;
@@ -228,11 +228,11 @@
             this.isGoalNode = isGoalNode;
         }
     }</pre>
-    </blockquote>
+    
       
     <p>Next we will create a <code>TreeSearch</code> class, and in it we will define 
       a method<code> makeTree() </code>which constructs the above binary tree. </p>
-    <blockquote>
+    
     <pre>static BinaryTree makeTree() {
         BinaryTree root, a, b, c, d, e, f;
         c = new BinaryTree("C", null, null, false);
@@ -244,17 +244,17 @@
         root = new BinaryTree("Root", a, b, false);
         return root;
     }</pre>
-    </blockquote>
+    
     <p>Here's a main program to create a binary tree and try to solve it:</p>
-    <blockquote>
+    
     <pre>public static void main(String args[]) {
         BinaryTree tree = makeTree();
         System.out.println(solvable(tree));
     }</pre>
-    </blockquote>
+    
     <p>And finally, here's the recursive backtracking routine to "solve" 
       the binary tree by finding a goal node.</p>
-    <blockquote> 
+     
       <pre>static boolean solvable(BinaryTree node) {
     /* 1 */  if (node == null) return false;
    /* 2 */  if (node.isGoalNode) return true;
@@ -262,7 +262,7 @@
     /* 4 */ if (solvable(node.rightChild)) return true;
     /* 5 */  return false;
     }</pre>
-    </blockquote>
+    
     <p>Here's what the numbered lines are doing:</p>
     <ol>
       <li>If we are given a null node, it's not solvable. This statement is so that 
@@ -281,14 +281,14 @@
       In the above we put that check as the first thing in <code>solvable</code>. 
       An alternative would be to check first whether each child exists, and recur 
       only if they do. Here's that alternative version: </p>
-    <blockquote> 
+     
       <pre>static boolean solvable(BinaryTree node) {
         if (node.isGoalNode) return true;
         if (node.leftChild != null &amp;&amp; solvable(node.leftChild)) return true;
         if (node.rightChild != null &amp;&amp; solvable(node.rightChild)) return true;
         return false;
     }</pre>
-    </blockquote>
+    
     <p>I think the first version is simpler, but the second version is slightly more 
       efficient. </p>
     <p><b><font size="+1"><br>
@@ -334,7 +334,7 @@
         row and column of the next square on the checkerboard).</dd>
     </dl>
     <p>Here's the code for method 1:</p>
-    <blockquote>
+    
       <pre>boolean explore1(int row, int column, int color) {
         if (row &gt;= NUM_ROWS) <b>return mapIsOK()</b>;
         map[row][column] = color;
@@ -344,9 +344,9 @@
         }
         return false;
     }</pre>
-    </blockquote>
+    
     <p>And here's the code for method 2:</p>
-    <blockquote>
+    
       <pre>boolean explore2(int row, int column, int color) {
         if (row &gt;= NUM_ROWS) <b>return true</b>;
         <b>if (okToColor(row, column, color)) {</b>
@@ -358,7 +358,7 @@
         }
         return false;
     }</pre>
-    </blockquote>
+    
     <p>Those appear pretty similar, and you might think they are equally good. However, 
       the timing information suggests otherwise:</p>
     <table align="center" border="1" cellpadding="4" >
@@ -407,7 +407,7 @@
       the results, so be very careful with it.</p>
     <p>Here's our debugging code. For this trivial program, there's almost more debugging 
       code than actual code, but in larger programs the proportions will be better.</p>
-    <blockquote>
+    
       <pre>static String indent = "";
     
     static String name(BinaryTree node) {
@@ -431,9 +431,9 @@
         System.out.println(indent + "solvable(" + name(node) + ") returns false");
         return false;
     }</pre>
-    </blockquote>
+    
     <p>To use this code, we modify solvable as follows:</p>
-    <blockquote>
+    
       <pre>static boolean solvable(BinaryTree node) {
         <b>enter(node)</b>;
         if (node == null) return <b>no(node)</b>;
@@ -442,9 +442,9 @@
         if (solvable(node.rightChild)) return <b>yes(node)</b>;
         return <b>no(node)</b>;
     }</pre>
-    </blockquote>
+    
     <p>And we get these results:</p>
-    <blockquote>
+    
       <pre><b>Entering solvable(Root)
     |  Entering solvable(A)
     |  |  Entering solvable(C)
@@ -466,7 +466,7 @@
     |  solvable(B) returns true
     solvable(Root) returns true
     true</b></pre>
-    </blockquote>
+    
     <p><b>Trick #3: Never discard your debugging statements. </b>Writing debugging 
       statements is programming, too. Often it's as much work to debug the debugging 
       statements as it is to debug the actual program. Once your program is working, 
@@ -480,7 +480,7 @@
       new bugs into your program.</p>
     <p>The simple solution is to make your debugging statements <i>conditional.</i> 
       For example,</p>
-    <blockquote> 
+     
       <pre><b>static final boolean debugging = false;</b>
     
     static void enter(BinaryTree node) {
@@ -505,7 +505,7 @@
         <b>}</b>
         return false;
     }</pre>
-    </blockquote>
+    
     In industry, actual programs often have multiple flags to control different aspects 
     of debugging. Don't worry too much about making your code larger; modern compilers 
     will notice that since the variable <code>debugging</code> is <code>final</code>, 
@@ -516,12 +516,12 @@
       your own Exceptions. However, Java programmers don't always realize that you 
       can create an Exception <i>without</i> throwing it. For example, the following 
       code</p>
-    <blockquote>
+    
       <pre>new Exception("Checkpoint Charlie").printStackTrace(System.out);</pre>
-    </blockquote>
+    
     <p>will print out a message something like this, and the program will then continue 
       normally. That is, the above code just acts like a print statement.</p>
-    <blockquote>
+    
       <pre>java.lang.Exception: Checkpoint Charlie
             at TreeSearch.solvable(TreeSearch.java:53)
             at TreeSearch.solvable(TreeSearch.java:57)
@@ -529,7 +529,7 @@
             at __SHELL38.run(__SHELL38.java:16)
             at bluej.runtime.ExecServer.suspendExecution(Unknown Source)
     </pre>
-    </blockquote>
+    
     <p><b><font size="+1"><br>
       Example: Cindy's Puzzle</b></p>
     <p>I call the following puzzle "Cindy's puzzle" for historical reasons. 
@@ -706,7 +706,7 @@
       we are more concerned with simplicity.) In technical jargon, <code>makeMove</code> 
       is "applicative" rather than "mutative."</p>
     <p>With these methods, our central backtracking method can be written as follows:</p>
-    <blockquote>
+    
       <pre>boolean solvable(int[] board) {
         if (puzzleSolved(board)) {
             return true;
@@ -722,7 +722,7 @@
         }
         return false;
     }</pre>
-    </blockquote>
+    
     <p>Along with <code>canMove</code> and <code>makeMove</code>, we are using methods 
       <code>puzzleSolved</code> and <code>printBoard</code> with meanings that should 
       be obvious.</p>
