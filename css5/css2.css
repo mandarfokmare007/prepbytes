@@ -1,0 +1,77 @@
+body{
+    background-color: yellow;
+}
+h1{
+    text-align: center;
+    margin-top: 0;
+}
+.container2{
+    display: grid;
+    justify-content: center;
+    margin-left: 40%;
+    width: 300px;
+    margin-top: 2em;
+}
+.transbox{
+    margin-left: 0.3em;
+    background-color: #669999;
+    width: 100px;
+    height: 100px;
+}
+#transbox1:hover{
+    width: 300px;
+    transition: width 3s;
+    transform-origin: center;
+    transition-timing-function: ease;
+}
+#transbox2:hover{
+    width: 300px;
+    height: 300px;
+    transition-timing-function: linear;
+    transform-origin: center;
+    transition: width 3s, height 6s;
+}
+#transbox3:hover{
+    width: 300px;
+    transition-timing-function: ease-in;
+    transition: width 3s;
+    transform-origin: center;
+}
+#transbox4:hover{
+    width: 300px;
+    transition-timing-function: ease-in-out;
+    transition: width 2s;
+    transform-origin: center;
+}
+#transbox5:hover{
+    width: 300px;
+    transition-timing-function:ease-out ;
+    transition: width 3s;
+    transform-origin: center;
+}
+#transbox6:hover{
+    width: 300px;
+    transition-timing-function: step-end;
+    transition: width 3s;
+    transform-origin: center;
+}
+#transbox7:hover{
+    width: 300px;
+    transition-timing-function: step-start;
+    transition: width 3s;
+    transform-origin: center;
+}
+.box{
+    display: flex;
+    margin-top: 2em;
+}
+.no{
+    font-weight: 700;
+    font-size: larger;
+}
+.footer1{
+    font-size: 2em;
+    font-weight: 700;
+    margin-left: 47%;
+    color: #A9333A;
+}

@@ -1,0 +1,159 @@
+.skyimage {
+    background-image: url(sky.jpg);
+    height: 100%;
+    background-position: center;
+    width: 146%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body {
+    display: block;
+    margin: 8px;
+}
+.building {
+    background-image: url(city.png);
+    background-repeat: repeat-x;
+    background-size: cover;
+    position: absolute;
+    z-index: 2;
+    top: 200px;
+    bottom: 200px;
+    left: 0px;
+    right: 0px;
+    width: 146%;
+    height: 54%;
+    animation: building 3s linear infinite;
+
+}
+.image {
+    margin-left: 50%;
+    margin-top: 10px;
+    animation: image 3s linear infinite;
+}
+.road {
+    background-image: url(road.jpg);
+    background-repeat: repeat-x;
+    background-size: cover;
+    position: absolute;
+    z-index: 3;
+    top: 550px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    width: 146%;
+    animation: road 3s linear infinite;
+}
+.car {
+    width: 600px;
+    height: 200px;
+    background-image: url(car.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 4;
+    position: absolute;
+    top: 400px;
+    bottom: 500px;
+    left: 150px;
+    right: 140%;
+    margin-left: 10%;
+    margin-top: 1.5%;
+}
+.wheel1 {
+    width: 110px;
+    height: 110px;
+    background-image: url(wheel.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-x;
+    position: absolute;
+    top: 520px;
+    bottom: 450px;
+    left: 360px;
+    z-index: 4;
+    animation: wheel1 3s linear infinite;
+}
+.wheel2 {
+    width: 110px;
+    height: 110px;
+    background-image: url(wheel.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-x;
+    position: absolute;
+    top: 530px;
+    bottom: 450px;
+    left: 730px;
+    z-index: 4;
+    animation: wheel2 3s linear infinite;
+}
+.india {
+    position: absolute;
+    right: 0px;
+    left: 50px;
+    top: 65%;
+    z-index: 3;
+    margin-left: 50%;
+}
+.i1 {
+    display: inline;
+    padding: 10px;
+    background-color: orange;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    z-index: 1;
+    font-size: 30px;
+    margin-left: 21%;
+}
+.i2 {
+    display: inline;
+    padding: 10px;
+    background-color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    z-index: 1;
+    font-size: 30px;
+    margin-left: 10px;
+}
+.i3 {
+    display: inline;
+    padding: 10px;
+    background-color: green;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    z-index: 1;
+    font-size: 30px;
+    margin-left: 10px;
+}
+@keyframes wheel1{
+    0% {
+        transform: rotate(
+    -90deg);
+    }
+    100% {
+        transform: rotate(
+    100deg);
+    }
+}
+@keyframes wheel2{
+    0% {
+        transform: rotate(
+    -90deg);
+    }
+    100% {
+        transform: rotate(
+    100deg);
+    }
+}
+@keyframes building{
+    100% {
+        transform: translateX(-500px);
+    }
+}
+@keyframes road{
+    100% {
+        transform: translateX(-500px);
+    }
+}
+@keyframes image{
+    100% {
+        transform: translateX(-500px);
+    }
+}
